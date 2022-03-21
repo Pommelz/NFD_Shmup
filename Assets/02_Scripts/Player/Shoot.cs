@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public Action Shoot_Event;
 
     [SerializeField] GameObject projectile;
     [SerializeField] float weaponCooldown;

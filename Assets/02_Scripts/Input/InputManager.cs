@@ -10,11 +10,15 @@ public class InputManager : PersistentSingleton<InputManager>
     public delegate void EndTouchEvent(Vector2 position, float time);
     public event EndTouchEvent OnEndTouch;
 
+    Vector2 touchPosition;
+    public Vector2 TouchPosition { get => touchPosition; }
+
     private TouchControls touchControls;
 
     internal override void Awake()
     {
         touchControls = new TouchControls();
+
     }
 
     private void OnEnable()
@@ -58,5 +62,19 @@ public class InputManager : PersistentSingleton<InputManager>
     private void Update()
     {
         Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
+        //if(Touch.activeTouches > 0)
+        //{
+        //    if(Touch.onFingerMove)
+        //}
+        touchPosition = touchControls.Touch.TouchPosition.ReadValue<Vector2>();
+    }
+
+    public Vector2 GetTouchPosition()
+    {
+        return touchPosition;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(touchPosition, Vector3.one);
     }
 }
