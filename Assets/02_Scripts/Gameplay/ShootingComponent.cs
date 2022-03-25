@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShootingComponent : MonoBehaviour
@@ -11,9 +12,9 @@ public class ShootingComponent : MonoBehaviour
     [SerializeField] bool hasMuzzle = true;
     [SerializeField] GameObject muzzleFlash;
     ObjectPool bulletPool;
-    ObjectPool muzzlePool;
+    List<ObjectPool> muzzlePools = new List<ObjectPool>();
     [SerializeField] float weaponCooldown;
-    [SerializeField] List<Transform> weaponMuzzles;
+    [SerializeField] List<MuzzleComponent> weaponMuzzles;
     [SerializeField] int poolSize;
     public bool isBlocked = false;
     Transform poolParent;
@@ -22,7 +23,8 @@ public class ShootingComponent : MonoBehaviour
     {
         poolParent = GameObject.Find(StringCollection.POOLPARENT).transform;
         bulletPool = new ObjectPool(projectile, poolSize, poolParent);
-        if (hasMuzzle) muzzlePool = new ObjectPool(muzzleFlash, poolSize, poolParent);
+        if (hasMuzzle)
+            weaponMuzzles = this.GetComponentsInChildren<MuzzleComponent>().ToList();
     }
 
     private void OnEnable()
@@ -58,15 +60,17 @@ public class ShootingComponent : MonoBehaviour
 
     private void SpawnMuzzle(int i)
     {
-        var muzzle = muzzlePool.NextFree();
-        muzzle.gameObject.transform.position = weaponMuzzles[i].position;
+            weaponMuzzles[i].PlayVFX();
+
+        //var muzzle = muzzlePool.NextFree();
+        //muzzle.gameObject.transform.position = weaponMuzzles[i].position;
     }
 
     private void SpawnBullet(int i)
     {
         //TODO: PLAY SOUND
         var bullet = bulletPool.NextFree();
-        bullet.gameObject.transform.position = weaponMuzzles[i].position;
-        bullet.gameObject.transform.rotation = weaponMuzzles[i].rotation;
+        bullet.gameObject.transform.position = weaponMuzzles[i].transform.position;
+        bullet.gameObject.transform.rotation = weaponMuzzles[i].transform.rotation;
     }
 }

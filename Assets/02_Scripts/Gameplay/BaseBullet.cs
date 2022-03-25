@@ -21,7 +21,7 @@ public abstract class BaseBullet : MonoBehaviour
 
     public virtual void MoveTowardsDirection(Vector3 _direction)
     {
-        transform.position += _direction * speed;
+        transform.position += _direction.normalized * Time.deltaTime * speed;
     }
 
     public virtual IEnumerator DestroyAfterLifetime()
