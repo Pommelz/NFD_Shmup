@@ -1,15 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] int health = 2;
-    //public int Health { get => health;}
+    
+    [SerializeField] int hitPointCounter = 2;
+    public int HitPointCounter { get => hitPointCounter; }
 
-    public void LoseLife()
+    public virtual void GetLife()
     {
+        hitPointCounter++;
+    }
 
+    public virtual void LoseLife()
+    {
+        hitPointCounter--;
     }
 
 }

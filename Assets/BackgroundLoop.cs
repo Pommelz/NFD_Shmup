@@ -12,7 +12,7 @@ public class BackgroundLoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraMain = gameObject.GetComponent<Camera>();
+        cameraMain = Camera.main;
         screenBounds = cameraMain.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraMain.transform.position.z));
         foreach (GameObject obj in background)
         {
@@ -22,14 +22,14 @@ public class BackgroundLoop : MonoBehaviour
 
     private void LoadChildObjects(GameObject obj)
     {
-        float objectWidth = obj.GetComponent<SpriteRenderer>().bounds.size.x;
-        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWidth);
+        float objectHeight = obj.GetComponent<SpriteRenderer>().bounds.size.y;
+        int childsNeeded = (int)Mathf.Ceil(screenBounds.y * 2 / objectHeight);
         GameObject clone = Instantiate(obj) as GameObject;
         for (int i = 0; i < childsNeeded; i++)
         {
             GameObject c = Instantiate(clone) as GameObject;
             c.transform.SetParent(obj.transform);
-            c.transform.position = new Vector3(objectWidth * i, obj.transform.position.y, obj.transform.position.z);
+            c.transform.position = new Vector3(obj.transform.position.x, objectHeight * i, obj.transform.position.z);
             c.name = obj.name + i;
         }
         Destroy(clone);

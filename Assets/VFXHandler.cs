@@ -6,14 +6,23 @@ using UnityEngine;
 public class VFXHandler : MonoBehaviour
 {
     [SerializeField] GameObject hitParticle;
+    ObjectPool hitObjects;
+    int poolSize;
+
+    private void Awake()
+    {
+        Transform poolParent = GameObject.Find("PoolParent").transform;
+        poolSize = poolParent.childCount;
+        hitObjects = new ObjectPool(hitParticle, poolSize, poolParent);
+    }
 
     private void OnEnable()
     {
-        BulletBehaviour.Hit_Event += OnHit;
+        PlayerBulletTypeOne.Hit_Event += OnHit;
     }
     private void OnDisable()
     {
-        BulletBehaviour.Hit_Event += OnHit;
+        PlayerBulletTypeOne.Hit_Event += OnHit;
     }
 
     private void OnHit(Vector3 hitLocation)

@@ -40,6 +40,8 @@ public class TouchTest : MonoBehaviour
 
     }
 
+
+
     private void Move(Vector2 screenPosition)
     {
         Vector3 screenCoordinates = new Vector3(screenPosition.x, screenPosition.y, cameraMain.nearClipPlane);
