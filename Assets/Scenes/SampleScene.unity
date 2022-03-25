@@ -248,7 +248,8 @@ GameObject:
   - component: {fileID: 396941965}
   - component: {fileID: 396941964}
   - component: {fileID: 396941968}
-  m_Layer: 0
+  - component: {fileID: 396941969}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -344,6 +345,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPointCounter: 2
+--- !u!114 &396941969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396941963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a78f5778696a2e46959b429ddc94938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404475468
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,8 +910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a535c884541c3146be0a3c67afb6d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitParticle: {fileID: 6289274050839657223, guid: 08464ac3fad430640b93868f711f629a,
+  hitParticle: {fileID: 4084559977368810862, guid: 610513229b6485a49b2387f4afed5d55,
     type: 3}
+  poolSize: 20
 --- !u!4 &1824756672
 Transform:
   m_ObjectHideFlags: 0
@@ -1083,10 +1097,48 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288091297, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 745902007, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155196267, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898050224762611290, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 4084559977368810862, guid: 610513229b6485a49b2387f4afed5d55,
+        type: 3}
+    - target: {fileID: 3129486987799095824, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4079220432229912062, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079220432229912062, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558496537862671273, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930287617075398034, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5289078446730766879, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
         type: 3}
@@ -1143,74 +1195,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5476331117493186178, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
---- !u!1001 &4084559979056388159
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810859, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084559977368810862, guid: 610513229b6485a49b2387f4afed5d55,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 610513229b6485a49b2387f4afed5d55, type: 3}

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+[System.Serializable]
 public class ObjectPool
 {
     private List<GameObject> objectList;
     private GameObject go;
     private Transform parent;
+
+    public List<GameObject> ObjectList { get => objectList; }
 
     public ObjectPool(GameObject ObjectToPool, int totalObjectsAtstart, Transform ParentObj)
     {

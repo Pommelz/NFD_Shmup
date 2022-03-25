@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerSoundFeedback : MonoBehaviour
 {
-    Shoot shootComponent;
+    ShootingComponent shootComponent;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Awake()
     {
-        shootComponent = GetComponent<Shoot>();
+        shootComponent = GetComponent<ShootingComponent>();
         audioSource = GetComponent<AudioSource>();
     }
 

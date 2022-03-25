@@ -15,11 +15,11 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(StringCollection.PLAYER))
-        {
-            CheckForHealthAndDropLife(other);
-        }
-        else if (other.CompareTag(StringCollection.ENEMY))
+        //if (other.gameObject.GetComponent<TouchTest>())
+        //{
+        //    CheckForHealthAndDropLife(other);
+        //} else
+         if (other.CompareTag(StringCollection.ENEMY))
         {
             CheckForHealthAndDropLife(other);
         }
@@ -30,6 +30,7 @@ public class Damage : MonoBehaviour
         var health = other.GetComponent<Health>();
         if (health != null)
         {
+            FindObjectOfType<VFXHandler>().OnHit(transform.position);
             health.LoseLife();
         }
     }

@@ -31,26 +31,25 @@ public abstract class BaseBullet : MonoBehaviour
         yield return null;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other);
-        if (other.CompareTag(StringCollection.PLAYER))
-        {
-            CheckForHealthAndDropLife(other);
-        }
-        else if (other.CompareTag(StringCollection.ENEMY))
-        {
-            CheckForHealthAndDropLife(other);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag(StringCollection.PLAYER))
+    //    {
+    //        CheckForHealthAndDropLife(other);
+    //    }
+    //    else if (other.CompareTag(StringCollection.ENEMY))
+    //    {
+    //        CheckForHealthAndDropLife(other);
+    //    }
+    //}
 
-    private void CheckForHealthAndDropLife(Collider other)
-    {
-        var health = other.GetComponent<Health>();
-        if (health != null)
-        {
-            health.LoseLife();
-        }
-    }
+    //private void CheckForHealthAndDropLife(Collider other)
+    //{
+    //    var health = other.GetComponent<Health>();
+    //    if (health != null)
+    //    {
+    //        health.LoseLife();
+    //    }
+    //}
 
 }
