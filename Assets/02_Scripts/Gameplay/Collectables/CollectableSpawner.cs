@@ -5,33 +5,34 @@ using UnityEngine;
 
 public class CollectableSpawner : MonoBehaviour
 {
-    public Action<Vector3> SpawnParticle_Event;
 
-    [SerializeField] List<GameObject> collectableList = new List<GameObject>();
+
+    [SerializeField] GameObject collectable;
     [SerializeField] int poolSize = 10;
 
-    List<ObjectPool> collectablePool = new List<ObjectPool>(1);
+    [SerializeField] ObjectPool collectablePool;
 
     private void Awake()
     {
-        collectablePool = new List<ObjectPool>(collectableList.Count);
+        //collectablePool = ObjectPool>(collectableList.Count);
         //for (int i = 0; i < collectableList.Count; i++)
         //{
         //    Debug.Log(i);
         //    collectablePool[i] = new ObjectPool(collectableList[i], poolSize, this.transform);
         //}
-        collectablePool[0] = new ObjectPool(collectableList[0], poolSize, this.transform);
+        collectablePool = new ObjectPool(collectable, poolSize, this.transform);
     }
 
     public void SpawnCollectable(Vector3 _position)
     {
-        var temp = collectablePool[0].NextFree();
+        GameObject temp = collectablePool.NextFree();
+        temp.SetActive(true);
         temp.transform.position = _position;
     }
 
     public void DespawnCollectable(GameObject _obj)
     {
-        if (collectablePool[0].ObjectList.Contains(_obj))
+        if (collectablePool.ObjectList.Contains(_obj))
         {
             _obj.SetActive(false);
         }

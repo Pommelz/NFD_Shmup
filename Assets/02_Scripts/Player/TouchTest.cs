@@ -23,7 +23,7 @@ public class TouchTest : MonoBehaviour
 
     private void Update()
     {
-        TopDownMovement(inputManager.TouchPosition);
+        Move(inputManager.TouchPosition);
     }
 
     private void OnDisable()

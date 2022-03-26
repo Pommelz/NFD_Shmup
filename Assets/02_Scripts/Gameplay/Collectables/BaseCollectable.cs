@@ -10,7 +10,6 @@ public abstract class BaseCollectable : MonoBehaviour
     {
         var temp = other.GetComponent<Health>();
         if (!temp) return;
-        //temp.GetLife();
         Disable();
     }
 
