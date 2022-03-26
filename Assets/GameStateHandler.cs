@@ -32,5 +32,7 @@ public static class GameStateHandler
         Paused,
         Booting,
         Loading,
+        Level,
+        Boss,
         Menu,
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GlobalVariableHolder : PersistentSingleton<GlobalVariableHolder>
 {
+
+
     private void OnEnable()
     {
         GameStateHandler.StateChanged_Event += OnStateChanged;
