@@ -4,10 +4,5 @@ using UnityEngine;
 
 public static class EnumCollection
 {
-    public enum GameStates
-    {
-        Paused,
-        TopDown,
-        ThirdPerson
-    }
+
 }

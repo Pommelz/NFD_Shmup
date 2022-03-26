@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectableSpawner : MonoBehaviour
 {
+    public Action<Vector3> SpawnParticle_Event;
+
     [SerializeField] List<GameObject> collectableList = new List<GameObject>();
     [SerializeField] int poolSize = 10;
 
