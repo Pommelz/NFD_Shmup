@@ -403,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &283269723
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627605869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
   m_Name: 
@@ -1077,13 +1077,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627605869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Trigger:
-    m_IsTriggerExpanded: 1
+    m_IsTriggerExpanded: 0
     m_Type: 0
     m_LifecycleEvent: 1
     m_ApplyRules: 0
@@ -1931,6 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d5a918e61a64245ae60f70b8d71491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraCount: 3
 --- !u!1 &1786857044
 GameObject:
   m_ObjectHideFlags: 3
@@ -2611,22 +2612,22 @@ PrefabInstance:
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.0599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.71
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.044341944
+      value: -26.59
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70544773
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
@@ -2636,12 +2637,17 @@ PrefabInstance:
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70876205
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776090015578379829, guid: e567063c86d8af645962c8d02f9d5ea5,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379829, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
@@ -2651,7 +2657,7 @@ PrefabInstance:
     - target: {fileID: 5776090015578379829, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: near clip plane
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5776090016996190484, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}

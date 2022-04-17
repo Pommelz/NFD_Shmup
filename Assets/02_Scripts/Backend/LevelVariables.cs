@@ -10,10 +10,18 @@ public class LevelVariables : Singleton<LevelVariables>
     public int LevelNumber { get => levelNumber; set => levelNumber = value; }
 
 
-
+    int levelTimeMinutes;
+    int levelTimeSeconds;
+    int enemiesKilled;
+    int lifesLost;
     int levelScore;
     int shotsFired;
     int shotsHit;
+
+    private void OnDisable()
+    {
+        
+    }
 
 
     public void AddScore(int _score)

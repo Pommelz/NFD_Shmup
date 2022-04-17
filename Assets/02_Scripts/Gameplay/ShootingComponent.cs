@@ -16,7 +16,7 @@ public class ShootingComponent : MonoBehaviour
     [SerializeField] float weaponCooldown;
     [SerializeField] List<MuzzleComponent> weaponMuzzles;
     [SerializeField] int poolSize;
-    public bool isBlocked = false;
+    private bool isBlocked = false;
     Transform poolParent;
 
     private void Awake()
@@ -25,6 +25,18 @@ public class ShootingComponent : MonoBehaviour
         bulletPool = new ObjectPool(projectile, poolSize, poolParent);
         if (hasMuzzle)
             weaponMuzzles = this.GetComponentsInChildren<MuzzleComponent>().ToList();
+    }
+
+    private void BlockShooting()
+    {
+        isBlocked = true;
+    }
+
+    private void UnblockShooting()
+    {
+        isBlocked = false;
+        StartCoroutine(StartShooting());
+
     }
 
     private void OnEnable()
@@ -60,7 +72,7 @@ public class ShootingComponent : MonoBehaviour
 
     private void SpawnMuzzle(int i)
     {
-            weaponMuzzles[i].PlayVFX();
+        weaponMuzzles[i].PlayVFX();
 
         //var muzzle = muzzlePool.NextFree();
         //muzzle.gameObject.transform.position = weaponMuzzles[i].position;
