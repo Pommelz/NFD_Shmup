@@ -8,7 +8,7 @@ public class CollectableSpawner : MonoBehaviour
 
 
     [SerializeField] GameObject collectable;
-    [SerializeField] int poolSize = 10;
+    [SerializeField] int poolSize = 40;
 
     [SerializeField] ObjectPool collectablePool;
 

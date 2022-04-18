@@ -23,6 +23,7 @@ public class LevelVariables : Singleton<LevelVariables>
         
     }
 
+    //TODO StartLevelEvent
 
     public void AddScore(int _score)
     {

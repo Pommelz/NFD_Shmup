@@ -3,6 +3,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     CollectableSpawner collectableSpawn;
+    [SerializeField] float movementSpeed = 2f;
     [Range(0, 100)] float probability = 30;
     public float Probaility { get => probability; set => probability = value; }
 
@@ -14,6 +15,16 @@ public class BaseEnemy : MonoBehaviour
     protected void OnDisable()
     {
         SpawnCollectable();
+    }
+
+    private void Update()
+    {
+        MoveToBottom();
+    }
+
+    protected void MoveToBottom()
+    {
+        transform.position += Vector3.down * Time.deltaTime * movementSpeed;
     }
 
     protected void SpawnCollectable()

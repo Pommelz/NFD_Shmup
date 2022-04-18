@@ -11,6 +11,7 @@ public static class StringCollection
     public const string ENEMY_BULLET = "Enemy_Bullet";
 
     public static string POOLPARENT = "PoolParent";
+    public static string ENEMY_HOLDER = "EnemyHolder";
     //Coroutines
     public const string temp = "temp";
 

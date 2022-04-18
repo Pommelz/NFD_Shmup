@@ -18,6 +18,7 @@ public class InputManager : PersistentSingleton<InputManager>
     internal override void Awake()
     {
         touchControls = new TouchControls();
+        EnhancedTouchSupport.Enable();
 
     }
 
