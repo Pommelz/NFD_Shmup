@@ -62,7 +62,7 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Touchscreen>/primaryTouch/tap"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mobile"",
                     ""action"": ""TouchInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -73,7 +73,7 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Touchscreen>/primaryTouch/press"",
                     ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mobile"",
                     ""action"": ""TouchPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -84,7 +84,7 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mobile"",
                     ""action"": ""TouchPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -114,14 +114,14 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""New action map"",
-            ""id"": ""42778b8e-cb6d-4dcd-9f8b-445f4ff882ef"",
+            ""name"": ""Controller"",
+            ""id"": ""9488838d-46ab-4f73-9661-9af1c83d7f11"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""c4f087b8-46d2-4f7e-8d1e-b6bf6be2e30a"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""MoveHorizontal"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f066d5d6-a6f3-477f-9bcc-c483b4c44869"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -130,28 +130,51 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8a115f6b-c380-43ce-81f1-04b9ccc91739"",
-                    ""path"": """",
+                    ""id"": ""576dcd09-9d8d-4269-8dbf-4f3260a78c1c"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Mobile"",
+            ""bindingGroup"": ""Mobile"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
         m_Touch_TouchInput = m_Touch.FindAction("TouchInput", throwIfNotFound: true);
         m_Touch_TouchPress = m_Touch.FindAction("TouchPress", throwIfNotFound: true);
         m_Touch_TouchPosition = m_Touch.FindAction("TouchPosition", throwIfNotFound: true);
-        // New action map
-        m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
-        m_Newactionmap_Newaction = m_Newactionmap.FindAction("New action", throwIfNotFound: true);
+        // Controller
+        m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
+        m_Controller_MoveHorizontal = m_Controller.FindAction("MoveHorizontal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -257,46 +280,64 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
     }
     public TouchActions @Touch => new TouchActions(this);
 
-    // New action map
-    private readonly InputActionMap m_Newactionmap;
-    private INewactionmapActions m_NewactionmapActionsCallbackInterface;
-    private readonly InputAction m_Newactionmap_Newaction;
-    public struct NewactionmapActions
+    // Controller
+    private readonly InputActionMap m_Controller;
+    private IControllerActions m_ControllerActionsCallbackInterface;
+    private readonly InputAction m_Controller_MoveHorizontal;
+    public struct ControllerActions
     {
         private @TouchControls m_Wrapper;
-        public NewactionmapActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Newactionmap_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
+        public ControllerActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveHorizontal => m_Wrapper.m_Controller_MoveHorizontal;
+        public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
-        public void SetCallbacks(INewactionmapActions instance)
+        public static implicit operator InputActionMap(ControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IControllerActions instance)
         {
-            if (m_Wrapper.m_NewactionmapActionsCallbackInterface != null)
+            if (m_Wrapper.m_ControllerActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
+                @MoveHorizontal.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMoveHorizontal;
             }
-            m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
+            m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @MoveHorizontal.started += instance.OnMoveHorizontal;
+                @MoveHorizontal.performed += instance.OnMoveHorizontal;
+                @MoveHorizontal.canceled += instance.OnMoveHorizontal;
             }
         }
     }
-    public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
+    public ControllerActions @Controller => new ControllerActions(this);
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
+    private int m_MobileSchemeIndex = -1;
+    public InputControlScheme MobileScheme
+    {
+        get
+        {
+            if (m_MobileSchemeIndex == -1) m_MobileSchemeIndex = asset.FindControlSchemeIndex("Mobile");
+            return asset.controlSchemes[m_MobileSchemeIndex];
+        }
+    }
     public interface ITouchActions
     {
         void OnTouchInput(InputAction.CallbackContext context);
         void OnTouchPress(InputAction.CallbackContext context);
         void OnTouchPosition(InputAction.CallbackContext context);
     }
-    public interface INewactionmapActions
+    public interface IControllerActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMoveHorizontal(InputAction.CallbackContext context);
     }
 }

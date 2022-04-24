@@ -11,7 +11,8 @@
                     "id": "5b560e7f-e4bb-4eb6-9043-65ff853318d4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TouchPress",
@@ -19,7 +20,8 @@
                     "id": "67508546-c2bb-499b-8d7a-b5176fcaa4c5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TouchPosition",
@@ -27,7 +29,8 @@
                     "id": "9d5b0e6c-7487-4541-ab98-253ff93206a2",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -37,7 +40,7 @@
                     "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mobile",
                     "action": "TouchInput",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -48,7 +51,7 @@
                     "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mobile",
                     "action": "TouchPress",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -59,7 +62,7 @@
                     "path": "<Touchscreen>/primaryTouch/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mobile",
                     "action": "TouchPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -89,32 +92,56 @@
             ]
         },
         {
-            "name": "New action map",
-            "id": "42778b8e-cb6d-4dcd-9f8b-445f4ff882ef",
+            "name": "Controller",
+            "id": "9488838d-46ab-4f73-9661-9af1c83d7f11",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "c4f087b8-46d2-4f7e-8d1e-b6bf6be2e30a",
-                    "expectedControlType": "Button",
+                    "name": "MoveHorizontal",
+                    "type": "PassThrough",
+                    "id": "f066d5d6-a6f3-477f-9bcc-c483b4c44869",
+                    "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "8a115f6b-c380-43ce-81f1-04b9ccc91739",
-                    "path": "",
+                    "id": "576dcd09-9d8d-4269-8dbf-4f3260a78c1c",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": "Controller",
+                    "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

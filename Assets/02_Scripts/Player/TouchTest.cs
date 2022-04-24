@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 public class TouchTest : MonoBehaviour
 {
     private InputManager inputManager;
     private Camera cameraMain;
     [SerializeField] float speed;
+    Vector2 movementDir;
 
     // Start is called before the first frame update
     void Awake()
@@ -30,6 +32,12 @@ public class TouchTest : MonoBehaviour
     {
         inputManager.OnEndTouch -= Move;
 
+    }
+
+    public void OnMovement(CallbackContext context)
+    {
+        var movementDir = context.ReadValue<Vector2>();
+        Debug.Log(movementDir);
     }
 
     private void Move(Vector2 screenPosition, float time)
