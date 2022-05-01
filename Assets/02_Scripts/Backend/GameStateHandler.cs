@@ -38,5 +38,6 @@ public static class GameStateHandler
         Win,
         Lose,
         Menu,
-        BackToMenu
-    }
+        BackToMenu,
+    StartLevel
+}

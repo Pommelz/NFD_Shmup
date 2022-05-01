@@ -30,6 +30,7 @@ public class GlobalVariableHolder : PersistentSingleton<GlobalVariableHolder>
                 break;
             case GameStates.Resumed:
                 Time.timeScale = 1f;
+                OnStateChanged(GameStates.Level);
                 break;
             case GameStates.Win:
                 break;

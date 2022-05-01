@@ -22,7 +22,8 @@ public class SceneService : MonoBehaviour
             case GameStates.LoadingComplete:
                 SceneManager.LoadScene("MainMenu");
                 break;
-            case GameStates.Level:
+            case GameStates.StartLevel:
+                Debug.Log("beep");
                 SceneManager.LoadScene("GameScene");
                 break;
             case GameStates.BackToMenu:
