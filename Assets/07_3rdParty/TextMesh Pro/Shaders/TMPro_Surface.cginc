@@ -1,4 +1,7 @@
-void VertShader(inout appdata_full v, out Input data)
+void VertShader(inout appdata_full v, out 
+	
+	
+	data)
 {
 	v.vertex.x += _VertexOffsetX;
 	v.vertex.y += _VertexOffsetY;

@@ -11,19 +11,25 @@ public class WaveSpawner : MonoBehaviour
     Transform enemyHolder;
     Coroutine spawnRoutine;
     bool isLevelFinished = false;
+    int enemyWaveCounter;
+    [SerializeField] LevelVariables levelVariables;
+
 
     ObjectPool enemyPool;
+    private bool hasBoss;
+
     private void Awake()
     {
         enemyHolder = transform.parent;
         Debug.Log(enemyHolder.name + " " + enemyPrefab.name);
         enemyPool = new ObjectPool(enemyPrefab, 25, enemyHolder);
         Debug.Log(enemyPool.ObjectList.Count);
-
     }
 
     private void Start()
     {
+
+        enemyWaveCounter = levelVariables.LevelData.WaveNumber;
         spawnRoutine = StartCoroutine(SpawnEnemies());
     }
 
@@ -57,8 +63,18 @@ public class WaveSpawner : MonoBehaviour
     {
         while (!isLevelFinished)
         {
-            SpawnWave();
-            yield return new WaitForSeconds(spawnDelay);
+            for (int i = 0; i < enemyWaveCounter; i++)
+            {
+                Debug.Log(i);
+                SpawnWave();
+                yield return new WaitForSeconds(spawnDelay);
+            }
+            if (hasBoss)
+            {
+
+            }
+            isLevelFinished = !isLevelFinished;
+            GameStateHandler.SetState(GameStates.BackToMenu);
         }
         yield return null;
     }

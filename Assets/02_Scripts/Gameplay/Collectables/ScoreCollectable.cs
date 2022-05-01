@@ -8,7 +8,7 @@ public class ScoreCollectable : BaseCollectable
 
     private void AddScore()
     {
-        LevelVariables.Instance.AddScore(addedScore);
+        //LevelVariables.Instance.AddScore(addedScore);
         Disable();
     }
 

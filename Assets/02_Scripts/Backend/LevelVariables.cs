@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelVariables : Singleton<LevelVariables>
+public class LevelVariables : MonoBehaviour
 {
     string levelName;
     public string LevelName { get => levelName; set => levelName = value; }
     int levelNumber;
     public int LevelNumber { get => levelNumber; set => levelNumber = value; }
-
+    public LevelConfig LevelData { get => levelData; }
 
     int levelTimeMinutes;
     int levelTimeSeconds;
@@ -17,6 +17,13 @@ public class LevelVariables : Singleton<LevelVariables>
     int levelScore;
     int shotsFired;
     int shotsHit;
+
+    [SerializeField] LevelConfig levelData;
+
+    private void Start()
+    {
+        Debug.Log(LevelData);
+    }
 
     private void OnDisable()
     {

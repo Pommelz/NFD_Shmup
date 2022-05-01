@@ -2,20 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraStateHandler : MonoBehaviour
 {
     public static Action<CameraStates> CamStateChanged_Event;
-    [SerializeField] static Camera topDownCam;
-    [SerializeField] static Camera thirdPersonCam;
-    [SerializeField] static Camera sideScrollerCam;
+    [SerializeField] CinemachineVirtualCamera topDownCam;
+    [SerializeField] CinemachineVirtualCamera thirdPersonCam;
+    [SerializeField] CinemachineVirtualCamera sideScrollerCam;
     [SerializeField] int cameraCount = 3;
-    private Camera activeCamera;
+    private CinemachineVirtualCamera activeCamera;
     static CameraStates camState;
+
+    private void Start()
+    {
+        StartGame();
+        StartCoroutine(SwitchCameras());
+    }
+
 
     public void StartGame()
     {
-        camState = CameraStates.TopDown; //CameraStates _camState
+        SetState(CameraStates.TopDown); //CameraStates _camState
     }
 
     public void SetState(CameraStates _camState)
@@ -28,6 +36,23 @@ public class CameraStateHandler : MonoBehaviour
     public static CameraStates GetState()
     {
         return camState;
+    }
+
+
+    public IEnumerator SwitchCameras()
+    {
+        for (int i = 0; i < cameraCount; i++)
+        {
+
+            yield return new WaitForSeconds(5f);
+            SetState(CameraStates.ThirdPerson);
+            yield return new WaitForSeconds(5f);
+            SetState(CameraStates.SideScroller);
+            yield return new WaitForSeconds(5f);
+            SetState(CameraStates.TopDown);
+            yield return null;
+        }
+
     }
 
 

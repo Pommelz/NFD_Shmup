@@ -69,7 +69,10 @@ SubShader {
 	half _FaceShininess;
 	half _OutlineShininess;
 
-	struct Input
+	struct 
+
+
+
 	{
 		fixed4	color		: COLOR;
 		float2	uv_MainTex;

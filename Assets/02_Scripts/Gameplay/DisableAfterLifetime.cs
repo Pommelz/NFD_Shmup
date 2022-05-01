@@ -8,10 +8,10 @@ public class DisableAfterLifetime : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(DestroyAfterLifetime());
+        StartCoroutine(DisableObjectAfterLifetime());
     }
     // Start is called before the first frame update
-    public virtual IEnumerator DestroyAfterLifetime()
+    public virtual IEnumerator DisableObjectAfterLifetime()
     {
         yield return new WaitForSeconds(lifetime);
         this.gameObject.SetActive(false);

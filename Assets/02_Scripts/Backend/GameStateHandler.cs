@@ -30,9 +30,13 @@ public static class GameStateHandler
     public enum GameStates
     {
         Paused,
+        Resumed,
         Booting,
-        Loading,
+        LoadingComplete,
         Level,
         Boss,
+        Win,
+        Lose,
         Menu,
+        BackToMenu
     }

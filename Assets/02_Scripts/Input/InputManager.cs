@@ -35,6 +35,7 @@ public class InputManager : PersistentSingleton<InputManager>
         TouchSimulation.Disable();
 
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
+        EnhancedTouchSupport.Disable();
     }
 
     private void FingerDown(Finger obj)

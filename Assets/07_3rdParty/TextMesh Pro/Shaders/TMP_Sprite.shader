@@ -64,7 +64,11 @@ Shader "TextMeshPro/Sprite"
 				float4 vertex   : POSITION;
 				float4 color    : COLOR;
 				float2 texcoord : TEXCOORD0;
-                UNITY_VERTEX_INPUT_INSTANCE_ID
+                UNITY_VERTEX_
+					
+					
+					
+					_INSTANCE_ID
 			};
 
 			struct v2f

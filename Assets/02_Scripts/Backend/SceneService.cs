@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GlobalVariableHolder : PersistentSingleton<GlobalVariableHolder>
+public class SceneService : MonoBehaviour
 {
-
-
     private void OnEnable()
     {
         GameStateHandler.StateChanged_Event += OnStateChanged;
@@ -16,29 +15,21 @@ public class GlobalVariableHolder : PersistentSingleton<GlobalVariableHolder>
         GameStateHandler.StateChanged_Event -= OnStateChanged;
     }
 
-
-
     private void OnStateChanged(GameStates obj)
     {
         switch (obj)
         {
-
-            case GameStates.Paused:
-                Time.timeScale = 0f;
+            case GameStates.LoadingComplete:
+                SceneManager.LoadScene("MainMenu");
                 break;
-            case GameStates.Boss:
+            case GameStates.Level:
+                SceneManager.LoadScene("GameScene");
                 break;
-            case GameStates.Resumed:
-                Time.timeScale = 1f;
+            case GameStates.BackToMenu:
+                SceneManager.LoadScene("MainMenu");
                 break;
-            case GameStates.Win:
-                break;
-            case GameStates.Lose:
-                break;
-
             default:
                 break;
         }
-
     }
 }

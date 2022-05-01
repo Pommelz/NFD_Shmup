@@ -1,5 +1,9 @@
 ﻿struct vertex_t {
-    UNITY_VERTEX_INPUT_INSTANCE_ID
+    UNITY_VERTEX_
+		
+		
+		
+		_INSTANCE_ID
     float4	position		: POSITION;
     float3	normal			: NORMAL;
     float4	color			: COLOR;
