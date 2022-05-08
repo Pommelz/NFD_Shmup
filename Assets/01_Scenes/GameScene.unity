@@ -2279,22 +2279,22 @@ PrefabInstance:
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -9.11
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.59
+      value: -2.68
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379826, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
@@ -2319,7 +2319,7 @@ PrefabInstance:
     - target: {fileID: 5776090015578379829, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
       propertyPath: near clip plane
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5776090015578379829, guid: e567063c86d8af645962c8d02f9d5ea5,
         type: 3}
