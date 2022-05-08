@@ -41,7 +41,37 @@ public class ShootingComponent : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(StartShooting());
+        GameStateHandler.StateChanged_Event += OnStateChanged;
+    }
+    private void OnDisable()
+    {
+        GameStateHandler.StateChanged_Event -= OnStateChanged;
+    }
+
+    private void OnStateChanged(GameStates obj)
+    {
+        switch (obj)
+        {
+
+            case GameStates.StartLevel:
+                StartCoroutine(StartShooting());
+                break;
+            case GameStates.Boss:
+                UnblockShooting();
+                break;
+            case GameStates.BossStarts:
+                BlockShooting();
+                break;
+            case GameStates.Win:
+                BlockShooting();
+                break;
+            case GameStates.Lose:
+                BlockShooting();
+                break;
+
+            default:
+                break;
+        }
     }
 
 
@@ -53,7 +83,6 @@ public class ShootingComponent : MonoBehaviour
             ShootProjectile();
             yield return null;
         }
-        yield return null;
     }
 
     private void ShootProjectile()

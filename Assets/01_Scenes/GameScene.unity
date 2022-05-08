@@ -1238,18 +1238,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1278982056555748340}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1026718195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 473608509, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
-    type: 3}
-  m_PrefabInstance: {fileID: 1278982056555748340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026718190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d5ac3bbf8ff4b47b7d39901a2dcd0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1026718197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,8 +1278,8 @@ MonoBehaviour:
     m_ActionName: Touch/TouchPosition[/Simulated Touchscreen/primaryTouch/position,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1026718195}
-        m_TargetAssemblyTypeName: TouchTest, Assembly-CSharp
+      - m_Target: {fileID: 1026718198}
+        m_TargetAssemblyTypeName: TestInput, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
         m_Arguments:
@@ -1309,6 +1297,18 @@ MonoBehaviour:
   m_DefaultActionMap: Controller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1026718198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026718190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4241a0a3ed617040bd7808c08fd333d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1163934603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1979,6 +1979,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1877433389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877433391}
+  - component: {fileID: 1877433390}
+  m_Layer: 0
+  m_Name: LevelService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1877433390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877433389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f7b699b18921245917cc32c2ab4b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1877433391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877433389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895518886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4558496537862671273, guid: 14339460fd4f2bb4294fd5d5c2cf5286,
@@ -2228,6 +2272,10 @@ PrefabInstance:
     - target: {fileID: 473608509, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
       propertyPath: speed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 473608509, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 745902007, guid: 14339460fd4f2bb4294fd5d5c2cf5286, type: 3}
       propertyPath: m_Layer

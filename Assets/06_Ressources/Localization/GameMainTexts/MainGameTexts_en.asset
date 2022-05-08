@@ -26,5 +26,14 @@ MonoBehaviour:
     m_Localized: 'Life:'
     m_Metadata:
       m_Items: []
+  - m_Id: 13322647428562944
+    m_Localized: Play!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13322819327918080
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
   references:
-    version: 1
+    version: 2
+    RefIds: []

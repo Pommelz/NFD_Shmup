@@ -22,6 +22,5 @@ public class DisableParticleAfterLifetime : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime);
         this.gameObject.SetActive(false);
-        yield return null;
     }
 }
