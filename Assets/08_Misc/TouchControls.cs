@@ -119,12 +119,12 @@ public partial class @TouchControls : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""MoveHorizontal"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""f066d5d6-a6f3-477f-9bcc-c483b4c44869"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
