@@ -46,8 +46,8 @@ public class CameraStateHandler : MonoBehaviour
 
             yield return new WaitForSeconds(5f);
             SetState(CameraStates.ThirdPerson);
-            yield return new WaitForSeconds(5f);
-            SetState(CameraStates.SideScroller);
+            //yield return new WaitForSeconds(5f);
+            //SetState(CameraStates.SideScroller);
             yield return new WaitForSeconds(5f);
             SetState(CameraStates.TopDown);
         }
