@@ -39,7 +39,6 @@ public class WaveSpawner : MonoBehaviour
             //GameObject.Instantiate(enemyPrefab, nextWave.GetPosition(i), Quaternion.identity, enemyHolder);
             GameObject temp = enemyPool.NextFree();
             temp.transform.position = nextWave.GetPosition(i);
-            temp.transform.rotation = Quaternion.identity;
         }
     }
     public void StartSpawning()
