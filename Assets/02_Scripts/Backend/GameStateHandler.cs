@@ -27,17 +27,17 @@ public static class GameStateHandler
     // Start is called before the first frame update
 
 }
-    public enum GameStates
-    {
-        Paused,
-        Resumed,
-        Booting,
-        LoadingComplete,
-        Level,
-        Boss,
-        Win,
-        Lose,
-        Menu,
-        BackToMenu,
+public enum GameStates
+{
+    Paused,
+    Resumed,
+    Booting,
+    LoadingComplete,
+    Level,
+    Boss,
+    Win,
+    Lose,
+    Menu,
+    BackToMenu,
     StartLevel
 }

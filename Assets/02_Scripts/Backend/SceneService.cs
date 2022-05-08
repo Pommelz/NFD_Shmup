@@ -15,9 +15,9 @@ public class SceneService : MonoBehaviour
         GameStateHandler.StateChanged_Event -= OnStateChanged;
     }
 
-    private void OnStateChanged(GameStates obj)
+    private void OnStateChanged(GameStates gameState)
     {
-        switch (obj)
+        switch (gameState)
         {
             case GameStates.LoadingComplete:
                 SceneManager.LoadScene("MainMenu");
