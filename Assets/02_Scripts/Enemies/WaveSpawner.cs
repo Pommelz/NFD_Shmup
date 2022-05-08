@@ -21,16 +21,14 @@ public class WaveSpawner : MonoBehaviour
     private void Awake()
     {
         enemyHolder = transform.parent;
-        Debug.Log(enemyHolder.name + " " + enemyPrefab.name);
         enemyPool = new ObjectPool(enemyPrefab, 25, enemyHolder);
-        Debug.Log(enemyPool.ObjectList.Count);
     }
 
     private void Start()
     {
 
         enemyWaveCounter = levelVariables.LevelData.WaveNumber;
-        spawnRoutine = StartCoroutine(SpawnEnemies());
+        //StartSpawning();
     }
 
     void SpawnWave()
@@ -44,17 +42,21 @@ public class WaveSpawner : MonoBehaviour
             temp.transform.rotation = Quaternion.identity;
         }
     }
+    public void StartSpawning()
+    {
+        isLevelFinished = false;
+        spawnRoutine = StartCoroutine(SpawnEnemies());
+    }
 
     public void EndSpawning()
     {
-        isLevelFinished = false;
+        isLevelFinished = true;
     }
 
     public LineRenderer RandomizeSpawnPattern()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
         int rngNumber = Random.Range(0, wavePatternList.Count);
-        Debug.Log("Lucky number: " + rngNumber);
         return wavePatternList[rngNumber];
     }
 
@@ -71,11 +73,15 @@ public class WaveSpawner : MonoBehaviour
             }
             if (hasBoss)
             {
-
+                GameStateHandler.SetState(GameStates.Boss);
             }
-            isLevelFinished = !isLevelFinished;
-            GameStateHandler.SetState(GameStates.BackToMenu);
+            //else
+            //{
+            //    yield return new WaitForSeconds(5f);
+            //    GameStateHandler.SetState(GameStates.BackToMenu);
+
+            //}
+            yield return null;
         }
-        yield return null;
     }
 }

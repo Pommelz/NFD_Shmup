@@ -9,12 +9,13 @@ public class MenuService : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Transform parentTransform = GameObject.FindObjectOfType<Bootstrapper>().transform;
+        this.transform.parent = parentTransform? parentTransform : null ;
     }
 
     public void StartGame()
     {
-        GameStateHandler.SetState(GameStates.StartLevel);
+        GameStateHandler.SetState(GameStates.LoadLevel);
         
     }
 

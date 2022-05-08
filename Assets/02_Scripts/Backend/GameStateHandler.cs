@@ -39,5 +39,7 @@ public enum GameStates
     Lose,
     Menu,
     BackToMenu,
-    StartLevel
+    StartLevel,
+    BossStarts,
+    LoadLevel
 }

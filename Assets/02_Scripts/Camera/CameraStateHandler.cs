@@ -50,7 +50,6 @@ public class CameraStateHandler : MonoBehaviour
             SetState(CameraStates.SideScroller);
             yield return new WaitForSeconds(5f);
             SetState(CameraStates.TopDown);
-            yield return null;
         }
 
     }

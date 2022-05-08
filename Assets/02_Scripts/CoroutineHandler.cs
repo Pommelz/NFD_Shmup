@@ -21,6 +21,5 @@ public class CoroutineHandler : PersistentSingleton<CoroutineHandler>
     {
         yield return new WaitForSeconds(_lifetime);
         _obj.SetActive(false);
-        yield return null;
     }
 }

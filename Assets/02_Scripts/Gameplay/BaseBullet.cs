@@ -28,7 +28,6 @@ public abstract class BaseBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime);
         this.gameObject.SetActive(false);
-        yield return null;
     }
 
     //private void OnTriggerEnter(Collider other)
